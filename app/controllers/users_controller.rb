@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  protect_from_forgery except: [:create, :update, :destroy]
   before_action :get_user, except: [:index, :create]
   respond_to :html, :json
 
