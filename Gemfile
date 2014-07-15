@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 #Use angular js
 gem 'angularjs-rails'
-gem "angular-gem"
 gem 'angular-ui-bootstrap-rails'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

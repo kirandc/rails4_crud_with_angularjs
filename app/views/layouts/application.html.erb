@@ -6,8 +6,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-controller="UserListCtr">
-  <div class="container">
+<body>
+  <div class="container" ng-view>
     <%= yield %>
   </div>
 

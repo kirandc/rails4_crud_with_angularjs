@@ -18,16 +18,17 @@
         <div class="form-group" ng-class="{'has-error' : submitted && userForm.email.$invalid}">
             <label class="control-label col-md-3">Email <span class="required">* </span> </label>
             <div class="col-md-4">
-                <input type="text" name="email" class="form-control" ng-model="user.email" required placeholder="test@example.com"/>
+                <input type="email" name="email" class="form-control" ng-model="user.email" required placeholder="test@example.com"/>
             </div>
-            <p ng-show=" submitted && userForm.email.$invalid" class="help-block">Email is required.</p>
+            <p ng-show="submitted && userForm.email.$error.required" class="help-block">Email is required.</p>
+            <p ng-show="submitted && userForm.email.$error.email" class="help-block">Enter valid email</p>
         </div>
         <div class="form-group">
             <label class="control-label col-md-3">Phone </label>
             <div class="col-md-4">
-                <input type="text" name="phone" class="form-control" ng-model="user.phone" required placeholder="9876543210"/>
+                <input type="text" name="phone" class="form-control" ng-model="user.phone" placeholder="9876543210"/>
             </div>
-            <p ng-show=" submitted && userForm.phone.$invalid" class="help-block">Phone is required.</p>
+            <p ng-show="submitted && userForm.phone.$invalid" class="help-block">Phone is required.</p>
         </div>
         <div class="form-group">
             <div class="pull-left">
