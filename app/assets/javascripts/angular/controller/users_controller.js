@@ -34,11 +34,13 @@ myApp.controller("UserListCtr", ['$scope', '$http', '$resource', 'Users', 'User'
 myApp.controller("UserUpdateCtr", ['$scope', '$resource', 'User', '$location', '$routeParams', function($scope, $resource, User, $location, $routeParams) {
   $scope.user = User.get({id: $routeParams.id})
   $scope.update = function(){
-    User.update($scope.user,function(){
-      $location.path('/');
-    }, function(error) {
-      console.log(error)
-    });
+    if ($scope.userForm.$valid){
+      User.update($scope.user,function(){
+        $location.path('/');
+      }, function(error) {
+        console.log(error)
+      });
+    }
   };
 }]);
 
