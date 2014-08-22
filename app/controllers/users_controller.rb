@@ -39,8 +39,12 @@ class UsersController < ApplicationController
   private
 
   def user_params
+    unless params["user"]["addresses"].blank?
+      params["user"]["addresses_attributes"] = params["user"]["addresses"]
+      params["user"].delete("addresses")
+    end
     params.fetch(:user, {}).permit(:first_name, :last_name, :email, :phone, 
-                                   :addresses_attributes => [:id, :street1, :street2, :city, :state, :country, :zipcode])
+                                   :addresses_attributes => [:id, :street1, :street2, :city, :state, :country, :zipcode, :_destroy, :user_id])
   end
 
   def get_user
